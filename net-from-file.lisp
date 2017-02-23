@@ -1,4 +1,3 @@
-
 (defpackage #:net-from-file
   (:use #:cl #:net)
   (:export #:file->net

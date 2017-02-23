@@ -1,3 +1,6 @@
+(defpackage #:calculate
+  (:use #:cl #:net))
+
 (defvar *max-rand* 100.0)
 
 (defstruct result
