@@ -1,6 +1,7 @@
 (defpackage #:net
   (:use #:cl)
-  (:export #:with-net
+  (:export #:*net*
+           #:with-net
            #:@set-cache-size
            #:@add-video
            #:@add-endpoint

@@ -27,4 +27,5 @@
                (loop for i from 0 below caches-number by 1
                      collecting (cons (read stream) (read stream))))))
           (dotimes (req-id requests)
-            (@add-request (read stream) (read stream) (read stream))))))))
+            (@add-request (read stream) (read stream) (read stream))))))
+    net))
