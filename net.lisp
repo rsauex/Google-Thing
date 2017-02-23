@@ -7,7 +7,12 @@
            #:@add-endpoint
            #:@add-request
            #:make-net
-           #:pretty-print))
+           #:pretty-print
+           #:@get-cache
+           #:@get-endpoint
+           #:@get-video
+           #:@get-cache-size
+           #:@add-cache))
 
 (defvar *net*)
 
