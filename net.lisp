@@ -1,10 +1,13 @@
 (defpackage #:net
   (:use #:cl)
-  (:export #:with-net
+  (:export #:*net*
+           #:with-net
            #:@set-cache-size
            #:@add-video
            #:@add-endpoint
-           #:@add-request))
+           #:@add-request
+           #:make-net
+           #:pretty-print))
 
 (defvar *net*)
 
@@ -55,3 +58,22 @@
                                                              :endpoint-requests (push (cons endpoint-id requests-num)
                                                                                       (video-endpoint-requests (gethash video-id (net-videos-ht *net*))))
                                                              :total-requests (+ (video-total-requests (gethash video-id (net-videos-ht *net*)))))))
+<<<<<<< HEAD:test.lisp
+=======
+
+(defun pretty-print (net)
+  (with-net net
+    (format t "cache-size: ~A~%" (net-cache-size *net*))
+    (format t "endpoints-ht:~%")
+    (maphash (lambda (key val)
+               (format t "~A: ~A~%" key val))
+             (net-endpoints-ht *net*))
+    (format t "caches-ht:~%")
+    (maphash (lambda (key val)
+               (format t "~A: ~A~%" key val))
+             (net-caches-ht *net*))
+    (format t "videos-ht:~%")
+    (maphash (lambda (key val)
+               (format t "~A: ~A~%" key val))
+             (net-videos-ht *net*))))
+>>>>>>> yhryhorenko:net.lisp
