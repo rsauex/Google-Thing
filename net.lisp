@@ -58,8 +58,6 @@
                                                              :endpoint-requests (push (cons endpoint-id requests-num)
                                                                                       (video-endpoint-requests (gethash video-id (net-videos-ht *net*))))
                                                              :total-requests (+ (video-total-requests (gethash video-id (net-videos-ht *net*)))))))
-<<<<<<< HEAD:test.lisp
-=======
 
 (defun pretty-print (net)
   (with-net net
@@ -76,4 +74,3 @@
     (maphash (lambda (key val)
                (format t "~A: ~A~%" key val))
              (net-videos-ht *net*))))
->>>>>>> yhryhorenko:net.lisp
