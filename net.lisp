@@ -9,6 +9,8 @@
            #:make-net
            #:pretty-print))
 
+(in-package #:net)
+
 (defvar *net*)
 
 (defmacro with-net (net &body body)

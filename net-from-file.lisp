@@ -1,7 +1,8 @@
 
 (defpackage #:net-from-file
   (:use #:cl #:net)
-  (:export #:file->net))
+  (:export #:file->net
+           #:res->file))
 
 (in-package #:net-from-file)
 
@@ -29,3 +30,10 @@
           (dotimes (req-id requests)
             (@add-request (read stream) (read stream) (read stream))))))
     net))
+
+(defun result->file (result file-name)
+  (with-open-file (stream file-name :direction :output)
+    (format stream "~A~%" (hash-table-size result))
+    (maphash (lambda (cache videos)
+               (format t "~A ~{~A~^ ~}~%" cache videos))
+             result)))
