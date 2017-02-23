@@ -14,6 +14,8 @@
            #:@get-cache-size
            #:@add-cache))
 
+(in-package #:net)
+
 (defvar *net*)
 
 (defmacro with-net (net &body body)
