@@ -7,7 +7,12 @@
            #:@add-endpoint
            #:@add-request
            #:make-net
-           #:pretty-print))
+           #:pretty-print
+           #:@get-cache
+           #:@get-endpoint
+           #:@get-video
+           #:@get-cache-size
+           #:@add-cache))
 
 (in-package #:net)
 
@@ -60,6 +65,23 @@
                                                              :endpoint-requests (push (cons endpoint-id requests-num)
                                                                                       (video-endpoint-requests (gethash video-id (net-videos-ht *net*))))
                                                              :total-requests (+ (video-total-requests (gethash video-id (net-videos-ht *net*)))))))
+
+(defun @add-cache (id endpoint-id latency)
+  (setf (gethash id (net-caches-ht *net*)) (make-connection :endpoint-id endpoint-id
+                                                            :latency latency
+                                                            :cache-id id)))
+
+(defun @get-cache (id)
+  (gethash id (net-caches-ht *net*)))
+
+(defun @get-video (id)
+  (gethash id (net-videos-ht *net*)))
+
+(defun @get-endpoint (id)
+  (gethash id (net-endpoints-ht *net*)))
+
+(defun @get-cache-size ()
+  (net-cache-size *net*))
 
 (defun pretty-print (net)
   (with-net net
