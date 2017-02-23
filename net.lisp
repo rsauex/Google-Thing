@@ -5,7 +5,8 @@
            #:@add-video
            #:@add-endpoint
            #:@add-request
-           #:make-net))
+           #:make-net
+           #:pretty-print))
 
 (defvar *net*)
 
