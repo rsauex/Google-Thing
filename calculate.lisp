@@ -44,3 +44,12 @@
               (setq temp (- temp 1))))
     (format t "total: ~A~%" curr-cost)
     curr))
+
+(defun test-for-roman ()
+  (let ((cache-vids-ht (make-hash-table))
+        (list-with-random-ids))
+    (dotimes (i 500)
+      (setf (gethash i cache-vids-ht)
+            (dotimes (i 500 list-with-random-ids) (push (random 500) list-with-random-ids))))))
+
+

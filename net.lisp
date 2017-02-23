@@ -33,7 +33,7 @@
   connection)
 
 (defstruct video
-  endpoint-requests ; alist
+  endpoint-requests ; alist -> (( endpoint-id . requests-num ) ... )
   total-requests
   size)
 
