@@ -14,6 +14,7 @@
                (requests (read stream))
                (caches (read stream))
                (cache-size (read stream)))
+          (declare (ignore caches))
           (@set-cache-size cache-size)
           (dotimes (id videos)
             (@add-video id (read stream)))
