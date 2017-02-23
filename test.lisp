@@ -54,4 +54,4 @@
   (setf (gethash video-id (net-videos-ht *net*)) (make-video :size (video-size (gethash video-id (net-videos-ht *net*)))
                                                              :endpoint-requests (push (cons endpoint-id requests-num)
                                                                                       (video-endpoint-requests (gethash video-id (net-videos-ht *net*))))
-                                                             :total-requests (+ (video-total-requests (net-videos-ht *net*))))))
+                                                             :total-requests (+ (video-total-requests (gethash video-id (net-videos-ht *net*)))))))
