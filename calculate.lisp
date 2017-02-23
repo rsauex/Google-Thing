@@ -14,8 +14,20 @@
 (defun get-rnd () 
   (/ (+ 1.0 (- (random *max-rand*) 1.0)) *max-rand*))
 
-(defun get-cost (state) 
-  (random 1000))
+(defun)
+
+
+(defun get-cost (state)
+  (let ((res 0)
+        (random 1000))
+    (maphash (lambda (cache-id vid-list)
+               (mapcar (lambda (vid-id)
+                         (let* ((vid (@get-video vid-id))
+                                (delta (@get-cache 
+                                        (mapcar (lambda (pair) 
+                                                  ()) (video-endpoint-requests vid)))))
+                           )) vid-list))
+             state)))
 
 
 
