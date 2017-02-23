@@ -18,12 +18,12 @@
           (dotimes (id videos)
             (@add-video id (read stream)))
           (dotimes (endp-id endpoints)
-            (let ((data-c-latency (read))
-                  (caches-number (read)))
+            (let ((data-c-latency (read stream))
+                  (caches-number (read stream)))
               (@add-endpoint
                endp-id
                data-c-latency
                (loop for i from 0 below caches-number by 1
-                     collecting (cons (read) (read))))))
+                     collecting (cons (read stream) (read stream))))))
           (dotimes (req-id requests)
-            (@add-request (read) (read) (read))))))))
+            (@add-request (read stream) (read stream) (read stream))))))))
